@@ -10,9 +10,14 @@ def pigLatin(original)
         return new_word
     elsif original.length > 0 and original.match(/^[[:alpha:]]+$/)
         word = original.downcase
-        splitword = word.split(/([aeiou].*)/)
+          if word[0] == 'q'
+            splitword = [word[0..1], word[2..-1]]
+          else
+            splitword = word.split(/([aeiou].*)/)
+          end
         new_word = "#{splitword[1]}#{splitword[0]}#{pyg}"
         return new_word
+
     else
         puts 'empty'
     end
