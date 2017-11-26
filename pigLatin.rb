@@ -17,7 +17,6 @@ def pigLatin(original)
           end
         new_word = "#{splitword[1]}#{splitword[0]}#{pyg}"
         return new_word
-
     else
         puts 'empty'
     end
