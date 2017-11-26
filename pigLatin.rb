@@ -34,7 +34,9 @@ while program_active
 
     for item in sentArr
         output.push(pigLatin(item))
-        output[0].upcase
+        first = output.shift
+        capital = first[0].upcase
+        output.unshift("#{capital}#{first[1..-1]}")
         answer = output.join(' ')
       end
     puts answer
