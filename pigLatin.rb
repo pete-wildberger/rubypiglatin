@@ -4,10 +4,9 @@ puts 'Pig Latin'
 #takes in a word, splits it at the vowels, and rearranges it, and returns a piglatin word.
 def pigLatin(original)
   #local variables
-  vowels = ['a', 'e', 'i', 'o', 'u']
   pyg = 'ay'
   # checks if there is a first letter and if it's a vowel
-    if original.length > 0 and vowels.include? original[0] and original.match(/^[[:alpha:]]+$/)
+    if original.length > 0 and "aeiou".include? original[0] and original.match(/^[[:alpha:]]+$/)
         word = original.downcase
         new_word = word + pyg
         return new_word
