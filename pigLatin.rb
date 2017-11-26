@@ -1,10 +1,9 @@
 #pigLatin.rb
 puts 'Pig Latin'
 
-program_active = TRUE
-vowels = ['a', 'e', 'i', 'o', 'u']
-
 def pigLatin(original)
+  vowels = ['a', 'e', 'i', 'o', 'u']
+  pyg = 'ay'
     if original.length > 0 and vowels.include? original[0] and original.match(/^[[:alpha:]]+$/)
         word = original.downcase
         new_word = word + pyg
@@ -12,21 +11,21 @@ def pigLatin(original)
     elsif original.length > 0 and original.match(/^[[:alpha:]]+$/)
         word = original.downcase
         splitword = word.split(/([aeiou].*)/)
-        new_word = splitword[1] + splitword[0] + pyg
+        new_word = "#{splitword[1]}#{splitword[0]}#{pyg}"
         return new_word
     else
         puts 'empty'
     end
 end
 
+program_active = true
 while program_active
     puts 'Type \'quit\' to exit'
-    pyg = 'ay'
     puts 'Enter a sentence:'
     STDOUT.flush
     sentence = gets.chomp
     if sentence == 'quit'
-        program_active = FALSE
+        program_active = false
     end
 
     output = []
@@ -34,8 +33,9 @@ while program_active
     sentArr = sentence.split(' ')
 
     for item in sentArr
-        output.append(pigLatin(item))
-        answer = ' '.join(output)
+        output.push(pigLatin(item))
+        output[0].upcase
+        answer = output.join(' ')
       end
     puts answer
     output = []
